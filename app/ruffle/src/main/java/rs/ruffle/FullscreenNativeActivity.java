@@ -15,8 +15,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.swordfish.radialgamepad.*;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
@@ -34,57 +32,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FullscreenNativeActivity extends GameActivity {
-
-    private lateinit var pad: RadialGamePad
-
-    private val padConfig = RadialGamePadConfig(
-        sockets = 6,
-        primaryDial = PrimaryDialConfig.Cross(
-            CrossConfig(
-                id = 0,
-                useDiagonals = false
-            )
-        ),
-        secondaryDials = listOf(
-            SecondaryDialConfig.SingleButton(
-                index = 1,
-                scale = 1f,
-                distance = 0f,
-                ButtonConfig(
-                    id = KeyEvent.KEYCODE_BUTTON_SELECT,
-                    iconId = R.drawable.ic_play
-                )
-            ),
-            SecondaryDialConfig.SingleButton(
-                index = 2,
-                scale = 1f,
-                distance = 0f,
-                ButtonConfig(
-                    id = KeyEvent.KEYCODE_BUTTON_L1,
-                    iconId = R.drawable.ic_stop
-                )
-            ),
-            SecondaryDialConfig.SingleButton(
-                index = 4,
-                scale = 1f,
-                distance = 0f,
-                ButtonConfig(
-                    id = KeyEvent.KEYCODE_BUTTON_MODE,
-                    iconId = R.drawable.ic_volume_down
-                )
-            ),
-            SecondaryDialConfig.SingleButton(
-                index = 5,
-                scale = 1f,
-                distance = 0f,
-                ButtonConfig(
-                    id = KeyEvent.KEYCODE_BUTTON_MODE,
-                    iconId = R.drawable.ic_volume_up
-                )
-            )
-        )
-    );
-
     static {
         System.loadLibrary("ruffle_android");
     }
@@ -262,31 +209,6 @@ public class FullscreenNativeActivity extends GameActivity {
         hideSystemUI();
         requestNoStatusBarFeature();
         super.onCreate(savedInstanceState);
-
-        pad = new RadialGamePad(padConfig, 8f, requireContext());
-        findViewById(FrameLayout.class).addView(pad);
-
-        lifecycleScope.launch {
-            pad.events()
-                .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
-                .collect {
-                    handleEvent(it);
-                }
-        }
-    }
-
-    private void handleEvent(Event event) {
-        switch (event) {
-            case BUTTON:
-                Log.d("Event", "Button event from control " + event.id);
-                break;
-            case GESTURE:
-                Log.d("Event", "Gesture event from control " + event.id);
-                break;
-            case DIRECTION:
-                Log.d("Event", "Direction event from control " + event.id);
-                break;
-        }
     }
 
     public boolean isGooglePlayGames() {
