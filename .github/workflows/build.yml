@@ -20,15 +20,6 @@ jobs:
           - android-abi: arm64-v8a
             rust-target: aarch64-linux-android
 
-          - android-abi: armeabi-v7a
-            rust-target: armv7-linux-androideabi
-
-          - android-abi: x86_64
-            rust-target: x86_64-linux-android
-
-          - android-abi: x86
-            rust-target: i686-linux-android
-
     steps:
       - uses: actions/checkout@v3
 
@@ -83,15 +74,15 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: ruffle-debug-apks
-          path: app/ruffle/build/outputs/apk/debug/*.apk
+          name: ruffle-debug-apk
+          path: app/ruffle/build/outputs/apk/debug/ruffle-arm64-v8a-debug.apk
 
       - name: Decode keystore
         if: ${{ !github.event.pull_request.head.repo.fork }}
         env:
             ENCODED_STRING: ${{ secrets.KEYSTORE }}
         run: |
-            echo $ENCODED_STRING | base64 -di > app/ruffle/androidkey.jks
+            echo $ENCODED_STRING > app/ruffle/androidkey.jks
 
       - name: Build release APK
         if: ${{ !github.event.pull_request.head.repo.fork }}
