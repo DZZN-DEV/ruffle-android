@@ -22,34 +22,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.OPENABLE" />
-
-                <data android:scheme="file"/>
-                <data android:scheme="content"/>
-
-                <data android:mimeType="application/x-shockwave-flash"/>
-
-                <data android:pathSuffix="swf" />
-                <data android:pathPattern="*.swf" />
-            </intent-filter>
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="http" />
-                <data android:scheme="https" />
-                <data android:host="*" />
-                <data android:pathPattern=".*\\.swf" />
-            </intent-filter>
-
         </activity>
 
         <!-- no workyyy -->
@@ -60,15 +32,11 @@
             android:exported="true"
             android:configChanges="orientation|keyboardHidden|screenSize"
 
-            android:screenOrientation="user"
-            >
+            android:screenOrientation="landscape">
             <meta-data android:name="android.app.lib_name" android:value="ruffle_android" />
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
-
     </application>
 </manifest>
