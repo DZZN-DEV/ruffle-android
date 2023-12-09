@@ -72,6 +72,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    // TEST
+    implementation 'io.github.controlwear:virtualjoystick:1.9.2'
+
     // To use the Android Frame Pacing library
     //implementation "androidx.games:games-frame-pacing:1.9.1"
 
