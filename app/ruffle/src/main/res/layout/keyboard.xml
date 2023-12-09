@@ -74,11 +74,14 @@
 
         </LinearLayout>
 
-        <!-- Middle Space Layout -->
-        <Space
+        <!-- Tastatur-Button "Space" -->
+        <Button
+            android:id="@+id/button_space"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:tag="32"
+            android:text="Space" />
 
         <!-- Interaction Layout -->
         <LinearLayout
