@@ -1,4 +1,4 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -41,31 +41,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="A"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_w" />
+            app:layout_constraintStart_toEndOf="@+id/button_w"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_s"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="S"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_a" />
+            app:layout_constraintStart_toEndOf="@+id/button_a"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="D"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_s" />
+            app:layout_constraintStart_toEndOf="@+id/button_s"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Pfeiltasten Layout -->
         <Button
             android:id="@+id/button_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="▲"
             app:layout_constraintEnd_toStartOf="@+id/button_space"
             app:layout_constraintTop_toTopOf="parent" />
@@ -74,16 +73,14 @@
             android:id="@+id/button_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="◄"
-            app:layout_constraintStart_toStartOf="@+id/button_up"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_up" />
 
         <Button
             android:id="@+id/button_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="▼"
             app:layout_constraintStart_toStartOf="@+id/button_left"
             app:layout_constraintTop_toBottomOf="@+id/button_left" />
@@ -92,7 +89,6 @@
             android:id="@+id/button_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="►"
             app:layout_constraintStart_toStartOf="@+id/button_down"
             app:layout_constraintTop_toBottomOf="@+id/button_down" />
@@ -102,10 +98,10 @@
             android:id="@+id/button_shift"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="BOMB!"
+            android:text="Shift"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/button_space"
-            app:layout_constraintTop_toTopOf="@+id/button_up" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_up" />
 
         <Button
             android:id="@+id/button_space"
@@ -113,8 +109,8 @@
             android:layout_height="wrap_content"
             android:text="Space"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_up"
-            app:layout_constraintStart_toEndOf="@+id/button_shift" />
+            app:layout_constraintStart_toEndOf="@+id/button_shift"
+            app:layout_constraintTop_toBottomOf="@+id/button_up" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Toolbar LinearLayout -->
@@ -143,4 +139,3 @@
             android:text="▤" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-            
