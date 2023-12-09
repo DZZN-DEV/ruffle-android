@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
@@ -32,10 +33,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FullscreenNativeActivity extends GameActivity {
+
     static {
+        // load the native activity
         System.loadLibrary("ruffle_android");
     }
-
     protected static byte[] SWF_BYTES;
 
     protected byte[] getSwfBytes() {
@@ -47,7 +49,6 @@ public class FullscreenNativeActivity extends GameActivity {
     }
 
     int[] loc = new int[2];
-
     protected int[] getLocOnScreen() {
         mSurfaceView.getLocationOnScreen(loc);
         return loc;
@@ -62,23 +63,20 @@ public class FullscreenNativeActivity extends GameActivity {
     }
 
     private static native void keydown(byte key_code, char key_char);
-
     private static native void keyup(byte key_code, char key_char);
 
     private static native void resized();
 
     private static native String[] prepareContextMenu();
-
     private static native void runContextMenuCallback(int index);
-
     private static native void clearContextMenu();
 
     private static <T> List<T> gatherAllDescendantsOfType(View v, Class t) {
         List<T> result = new ArrayList<T>();
         if (t.isInstance(v))
-            result.add((T) v);
-        if (v instanceof ViewGroup) {
-            ViewGroup vg = (ViewGroup) v;
+            result.add((T)v);
+        if (v instanceof  ViewGroup) {
+            ViewGroup vg = (ViewGroup)v;
             for (int i = 0; i < vg.getChildCount(); ++i) {
                 result.addAll(gatherAllDescendantsOfType(vg.getChildAt(i), t));
             }
@@ -89,8 +87,7 @@ public class FullscreenNativeActivity extends GameActivity {
     @Override
     protected void onCreateSurfaceView() {
         LayoutInflater inflater = getLayoutInflater();
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.keyboard, null);
-
+        ConstraintLayout layout = (ConstraintLayout)inflater.inflate(R.layout.keyboard, null);
         this.contentViewId = ViewCompat.generateViewId();
         layout.setId(this.contentViewId);
         setContentView(layout);
@@ -99,19 +96,20 @@ public class FullscreenNativeActivity extends GameActivity {
 
         View placeholder = findViewById(R.id.placeholder);
 
-        ConstraintLayout.LayoutParams pars = (ConstraintLayout.LayoutParams) placeholder.getLayoutParams();
+        ConstraintLayout.LayoutParams pars = (ConstraintLayout.LayoutParams)placeholder.getLayoutParams();
 
-        ViewGroup parent = (ViewGroup) placeholder.getParent();
+        ViewGroup parent = (ViewGroup)placeholder.getParent();
         int index = parent.indexOfChild(placeholder);
         parent.removeView(placeholder);
         parent.addView(this.mSurfaceView, index);
         this.mSurfaceView.setLayoutParams(pars);
 
+
         List<Button> keys = gatherAllDescendantsOfType(layout.getViewById(R.id.keyboard), Button.class);
 
         for (Button b : keys) {
             b.setOnTouchListener((View view, MotionEvent motionEvent) -> {
-                String tag = (String) view.getTag();
+                String tag = (String)view.getTag();
                 if (tag != null) {
                     String[] spl = tag.split(" ", 2);
                     byte by = Byte.parseByte(spl[0]);
@@ -126,7 +124,7 @@ public class FullscreenNativeActivity extends GameActivity {
             });
         }
 
-        layout.findViewById(R.id.button_kb).setOnClickListener((view) -> {
+        layout.findViewById(R.id.button_kb) .setOnClickListener((view) -> {
             View keyboard = layout.getViewById(R.id.keyboard);
             if (keyboard.getVisibility() == View.VISIBLE) {
                 keyboard.setVisibility(View.GONE);
@@ -190,10 +188,14 @@ public class FullscreenNativeActivity extends GameActivity {
     }
 
     private void hideSystemUI() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        // This will put the game behind any cutouts and waterfalls on devices which have
+        // them, so the corresponding insets will be non-zero.
+        if (VERSION.SDK_INT >= VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode
                     = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
         }
+        // From API 30 onwards, this is the recommended way to hide the system UI, rather than
+        // using View.setSystemUiVisibility.
         View decorView = getWindow().getDecorView();
         WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(),
                 decorView);
@@ -201,12 +203,20 @@ public class FullscreenNativeActivity extends GameActivity {
         controller.hide(WindowInsetsCompat.Type.displayCutout());
         controller.setSystemBarsBehavior(
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // When true, the app will fit inside any system UI windows.
+        // When false, we render behind any system UI windows.
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         hideSystemUI();
+        // You can set IME fields here or in native code using GameActivity_setImeEditorInfoFields.
+        // We set the fields in native_engine.cpp.
+        // super.setImeEditorInfoFields(InputType.TYPE_CLASS_TEXT,
+        //     IME_ACTION_NONE, IME_FLAG_NO_FULLSCREEN );
         requestNoStatusBarFeature();
         super.onCreate(savedInstanceState);
     }
@@ -217,8 +227,8 @@ public class FullscreenNativeActivity extends GameActivity {
     }
 
     private void requestNoStatusBarFeature() {
+        //Hiding the status bar this way makes it see through when pulled down
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
-            }
-    
+}
