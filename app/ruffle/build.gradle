@@ -3,6 +3,12 @@ plugins {
     id "com.github.willir.rust.cargo-ndk-android" version "0.3.4" apply false
 }
 
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
 android {
     compileSdk 33
 
