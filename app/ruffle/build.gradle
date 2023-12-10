@@ -75,7 +75,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     
     // TEST
-    // implementation 'io.github.controlwear:virtualjoystick:1.9.2'
+    implementation 'androidx.games:games-controller:2.0.0'
 
     // To use the Android Frame Pacing library
     //implementation "androidx.games:games-frame-pacing:1.9.1"
@@ -84,7 +84,7 @@ dependencies {
     //implementation "androidx.games:games-performance-tuner:1.5.0"
 
     // To use the Games Activity library
-    implementation "androidx.games:games-activity:1.1.0"
+    implementation "androidx.games:games-activity:2.0.2"
 
     // To use the Games Controller Library
     //implementation "androidx.games:games-controller:1.1.0"
