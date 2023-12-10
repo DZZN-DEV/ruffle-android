@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/topLevel"
@@ -10,8 +11,8 @@
     <SurfaceView
         android:id="@+id/placeholder"
         android:layout_width="0dp"
-        android:layout_height="0dp">
-        
+        android:layout_height="0dp"/>
+
     <!-- Keyboard Layout -->
     <LinearLayout
         android:id="@+id/keyboard"
@@ -34,8 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:tag="87 w"
-                android:text="W" />
-            
+                android:text="W"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="65 a"
-                    android:text="A" />
+                    android:text="A"/>
 
                 <Button
                     android:id="@+id/button_s"
@@ -55,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="83 s"
-                    android:text="S" />
+                    android:text="S"/>
 
                 <Button
                     android:id="@+id/button_d"
@@ -63,10 +64,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="68 d"
-                    android:text="D" />
-
+                    android:text="D"/>
             </LinearLayout>
-
         </LinearLayout>
 
         <!-- Space Button -->
@@ -76,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="32"
-            android:text="[.   -   .]" />
+            android:text="[.   -   .]"/>
 
         <!-- Interaction Layout -->
         <LinearLayout
@@ -98,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="27"
-                    android:text="ESC" />
+                    android:text="ESC"/>
 
                 <Button
                     android:id="@+id/button_up"
@@ -106,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="38"
-                    android:text="↑" />
+                    android:text="↑"/>
 
                 <Button
                     android:id="@+id/button_shift"
@@ -114,8 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="16"
-                    android:text="Bomb" />
-
+                    android:text="Bomb"/>
             </LinearLayout>
 
             <!-- LEFT, DOWN, RIGHT Buttons -->
@@ -130,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="37"
-                    android:text="←" />
+                    android:text="←"/>
 
                 <Button
                     android:id="@+id/button_down"
@@ -138,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="40"
-                    android:text="↓" />
+                    android:text="↓"/>
 
                 <Button
                     android:id="@+id/button_right"
@@ -146,10 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="39"
-                    android:text="→" />
-
+                    android:text="→"/>
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 
@@ -170,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="kb"
-            android:text="⌨ hide" />
+            android:text="⌨ hide"/>
 
         <!-- Checkable Button -->
         <Button
@@ -179,8 +175,6 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             android:tag="cm"
-            android:text="▤ cm" />
-
+            android:text="▤ cm"/>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
