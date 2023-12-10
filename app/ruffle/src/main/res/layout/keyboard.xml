@@ -10,12 +10,8 @@
     <SurfaceView
         android:id="@+id/placeholder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_height="0dp">
+        
     <!-- Keyboard Layout -->
     <LinearLayout
         android:id="@+id/keyboard"
@@ -32,15 +28,14 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <!-- W Button -->
+            <!-- WASD Buttons -->
             <Button
                 android:id="@+id/button_w"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:tag="87 w"
                 android:text="W" />
-
-            <!-- ASDF Buttons -->
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,6 +159,7 @@
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
