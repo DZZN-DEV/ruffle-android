@@ -97,21 +97,21 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_up"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="38"
-                    android:text="^" />
-
-                <Button
                     android:id="@+id/button_esc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="27"
                     android:text="ESC" />
-
+                
+                <Button
+                    android:id="@+id/button_up"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:tag="38"
+                    android:text="^" />
+                
                 <Button
                     android:id="@+id/button_shift"
                     android:layout_width="0dp"
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="37"
-                    android:text="(" />
+                    android:text="<" />
 
                 <Button
                     android:id="@+id/button_down"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="39"
-                    android:text=")" />
+                    android:text=">" />
 
             </LinearLayout>
 
