@@ -1,180 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/topLevel"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- SurfaceView -->
-    <SurfaceView
-        android:id="@+id/placeholder"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
-
-    <!-- Keyboard Layout -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+   android:id="@id/topLevel"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent">
+  <SurfaceView
+     app:layout_constraintBottom_toTopOf="@id/keyboard"
+     app:layout_constraintEnd_toEndOf="0"
+     app:layout_constraintStart_toStartOf="0"
+     app:layout_constraintTop_toTopOf="0"
+     android:id="@id/placeholder"
+     android:layout_width="0.0dip"
+     android:layout_height="0.0dip"/>
+  <LinearLayout
+     app:layout_constraintBottom_toBottomOf="0"
+     app:layout_constraintEnd_toEndOf="0"
+     app:layout_constraintStart_toStartOf="0"
+     app:layout_constraintTop_toBottomOf="@id/placeholder"
+     android:orientation="horizontal"
+     android:id="@id/keyboard"
+     android:layout_width="0.0dip"
+     android:layout_height="wrap_content"
+     android:layout_marginBottom="64.0dip">
     <LinearLayout
-        android:id="@+id/keyboard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:orientation="horizontal">
-
-        <!-- Move Layout -->
-        <LinearLayout
-            android:id="@+id/moveLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <!-- WASD Buttons -->
-            <Button
-                android:id="@+id/button_w"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:tag="87 w"
-                android:text="W"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_a"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="65 a"
-                    android:text="A"/>
-
-                <Button
-                    android:id="@+id/button_s"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="83 s"
-                    android:text="S"/>
-
-                <Button
-                    android:id="@+id/button_d"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="68 d"
-                    android:text="D"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Space Button -->
+       android:orientation="vertical"
+       android:id="@id/moveLayout"
+       android:layout_width="0.0dip"
+       android:layout_height="wrap_content"
+       android:layout_weight="1.0">
+      <Button
+         android:id="@id/button_w"
+         android:tag="87 w"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="W"/>
+      <LinearLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/button_space"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:tag="32"
-            android:text="[.   -   .]"/>
-
-        <!-- Interaction Layout -->
-        <LinearLayout
-            android:id="@+id/interactionLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <!-- ESC, UP, SHIFT Buttons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_esc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="27"
-                    android:text="ESC"/>
-
-                <Button
-                    android:id="@+id/button_up"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="38"
-                    android:text="↑"/>
-
-                <Button
-                    android:id="@+id/button_shift"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="16"
-                    android:text="Bomb"/>
-            </LinearLayout>
-
-            <!-- LEFT, DOWN, RIGHT Buttons -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button_left"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="37"
-                    android:text="←"/>
-
-                <Button
-                    android:id="@+id/button_down"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="40"
-                    android:text="↓"/>
-
-                <Button
-                    android:id="@+id/button_right"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:tag="39"
-                    android:text="→"/>
-            </LinearLayout>
-        </LinearLayout>
+           android:id="@id/button_a"
+           android:tag="65 a"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="A"
+           android:layout_weight="1.0"/>
+        <Button
+           android:id="@id/button_s"
+           android:tag="83 s"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="S"
+           android:layout_weight="1.0"/>
+        <Button
+           android:id="@id/button_d"
+           android:tag="68 d"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="D"
+           android:layout_weight="1.0"/>
+      </LinearLayout>
     </LinearLayout>
-
-    <!-- Toolbar Layout -->
+    <Button
+       android:id="@id/button_space"
+       android:tag="32"
+       android:layout_width="0.0dip"
+       android:layout_height="wrap_content"
+       android:text="Space"
+       android:layout_weight="1.0"/>
     <LinearLayout
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <!-- Keyboard Button -->
+       android:orientation="vertical"
+       android:id="@id/interactionLayout"
+       android:layout_width="0.0dip"
+       android:layout_height="wrap_content"
+       android:layout_weight="1.0">
+      <LinearLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/button_kb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tag="kb"
-            android:text="⌨ hide"/>
-
-        <!-- Checkable Button -->
+           android:id="@id/button_shift"
+           android:tag="16"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="BOMB"
+           android:layout_weight="1.0"/>
         <Button
-            android:id="@+id/button_cm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checkable="true"
-            android:tag="cm"
-            android:text="▤ cm"/>
+           android:id="@id/button_esc"
+           android:tag="27"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="ESC"
+           android:layout_weight="1.0"/>
+        <Button
+           android:id="@id/button_up"
+           android:tag="38"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="^"
+           android:layout_weight="1.0"/>      
+      </LinearLayout>
+      <LinearLayout
+         android:orientation="horizontal"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content">
+        <Button
+           android:id="@id/button_left"
+           android:tag="37"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="("
+           android:layout_weight="1.0"/>
+        <Button
+           android:id="@id/button_down"
+           android:tag="40"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text="v"
+           android:layout_weight="1.0"/>
+        <Button
+           android:id="@id/button_right"
+           android:tag="39"
+           android:layout_width="0.0dip"
+           android:layout_height="wrap_content"
+           android:text=")"
+           android:layout_weight="1.0"/>
+      </LinearLayout>
     </LinearLayout>
+  </LinearLayout>
+  <LinearLayout
+     app:layout_constraintBottom_toBottomOf="0"
+     app:layout_constraintEnd_toEndOf="0"
+     app:layout_constraintStart_toStartOf="0"
+     android:orientation="horizontal"
+     android:id="@id/toolbar"
+     android:layout_width="0.0dip"
+     android:layout_height="64.0dip">
+    <Button
+       android:id="@id/button_kb"
+       android:tag="kb"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="⌨ kb"/>
+    <Button
+       android:id="@id/button_cm"
+       android:tag="cm"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="▤ cm"
+       android:checkable="true"/>
+  </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
