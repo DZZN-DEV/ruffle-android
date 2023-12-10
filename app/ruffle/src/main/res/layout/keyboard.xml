@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- SurfaceView -->
     <SurfaceView
         android:id="@+id/placeholder"
         android:layout_width="0dp"
@@ -15,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Keyboard Layout -->
     <LinearLayout
         android:id="@+id/keyboard"
         android:layout_width="0dp"
@@ -22,7 +24,7 @@
         android:layout_marginBottom="64dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layou_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/placeholder">
 
@@ -34,6 +36,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- W Button -->
             <Button
                 android:id="@+id/button_w"
                 android:layout_width="match_parent"
@@ -41,6 +44,7 @@
                 android:tag="87 w"
                 android:text="W" />
 
+            <!-- ASDF Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,14 +78,14 @@
 
         </LinearLayout>
 
-        <!-- Tastatur-Button "Space" -->
+        <!-- Space Button -->
         <Button
             android:id="@+id/button_space"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="32"
-            android:text="Space" />
+            android:text="[.   -   .]" />
 
         <!-- Interaction Layout -->
         <LinearLayout
@@ -91,6 +95,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- ESC, UP, SHIFT Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,25 +108,26 @@
                     android:layout_weight="1"
                     android:tag="27"
                     android:text="ESC" />
-                
+
                 <Button
                     android:id="@+id/button_up"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="38"
-                    android:text="^" />
-                
+                    android:text="↑" />
+
                 <Button
                     android:id="@+id/button_shift"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="16"
-                    android:text="SHIFT" />
+                    android:text="Bomb" />
 
             </LinearLayout>
 
+            <!-- LEFT, DOWN, RIGHT Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="37"
-                    android:text="<" />
+                    android:text="←" />
 
                 <Button
                     android:id="@+id/button_down"
@@ -141,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="40"
-                    android:text="v" />
+                    android:text="↓" />
 
                 <Button
                     android:id="@+id/button_right"
@@ -149,13 +155,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="39"
-                    android:text=">" />
+                    android:text="→" />
 
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Toolbar Layout -->
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -165,13 +172,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Keyboard Button -->
         <Button
             android:id="@+id/button_kb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:tag="kb"
-            android:text="⌨ kb" />
+            android:text="⌨ hide" />
 
+        <!-- Checkable Button -->
         <Button
             android:id="@+id/button_cm"
             android:layout_width="wrap_content"
