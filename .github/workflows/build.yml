@@ -28,9 +28,6 @@ jobs:
 
       - name: Update Rust
         run: rustup update
-
-      - name: Install OpenSSL
-        run: sudo apt-get install -y libssl-dev
   
       - name: Install cargo-ndk
         run: cargo install cargo-ndk
@@ -38,7 +35,7 @@ jobs:
       - name: Build native libs
         run: |
           unset ANDROID_SDK_ROOT # Deprecated, will cause an error if left set.
-          cd scdl
+          cd native
           cargo ndk --target ${{ matrix.android-abi }} --platform 26 -o ../jniLibs build --release
 
       - uses: actions/upload-artifact@v3
@@ -79,27 +76,3 @@ jobs:
         with:
           name: ruffle-debug-apk
           path: app/ruffle/build/outputs/apk/debug/ruffle-arm64-v8a-debug.apk
-
-      - name: Decode keystore
-        if: ${{ !github.event.pull_request.head.repo.fork }}
-        env:
-            ENCODED_STRING: ${{ secrets.KEYSTORE }}
-        run: |
-            echo $ENCODED_STRING > app/ruffle/androidkey.jks
-
-      - name: Build release APK
-        if: ${{ !github.event.pull_request.head.repo.fork }}
-        run: |
-          cd app
-          ./gradlew assembleRelease
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ !github.event.pull_request.head.repo.fork }}
-        with:
-          name: ruffle-release-apks
-          path: app/ruffle/build/outputs/apk/release/*.apk
-
