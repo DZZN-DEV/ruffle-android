@@ -77,6 +77,8 @@ dependencies {
     // TEST
     implementation 'androidx.games:games-controller:2.0.0'
 
+    implementation 'com.github.erz05:JoyStick:1.1.0'
+
     // To use the Android Frame Pacing library
     //implementation "androidx.games:games-frame-pacing:1.9.1"
 
