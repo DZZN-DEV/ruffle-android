@@ -1,10 +1,10 @@
 name: Build
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
   workflow_dispatch:
 
 env:
@@ -35,7 +35,7 @@ jobs:
       - name: Build native libs
         run: |
           unset ANDROID_SDK_ROOT # Deprecated, will cause an error if left set.
-          cd native
+          cd scdl
           cargo ndk --target ${{ matrix.android-abi }} --platform 26 -o ../jniLibs build --release
 
       - uses: actions/upload-artifact@v3
