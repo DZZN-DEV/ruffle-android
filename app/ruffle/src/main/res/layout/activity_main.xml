@@ -22,7 +22,7 @@
         app:buttonColor="#55ff0000"
         app:stayPut="true"
         app:percentage="25"
-		app:backgroundDrawable="R.drawable.background"
+	app:backgroundDrawable="R.drawable.background"
         app:buttonDrawable="R.drawable.button"/>
 
     <Button
