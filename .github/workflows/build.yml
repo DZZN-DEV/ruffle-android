@@ -29,6 +29,9 @@ jobs:
       - name: Update Rust
         run: rustup update
 
+      - name: Install OpenSSL
+        run: sudo apt-get install -y libssl-dev
+  
       - name: Install cargo-ndk
         run: cargo install cargo-ndk
 
